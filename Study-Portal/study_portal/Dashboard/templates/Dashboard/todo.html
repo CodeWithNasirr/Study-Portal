@@ -1,0 +1,101 @@
+{% extends 'Dashboard/base.html' %}
+
+{% block body %}
+<div class="table-container max-width1 m-auto my-2">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for work in works %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{work.title}}</td>
+                <td>
+                    {% if work.status == 'not started' %}
+                    <span style="color: red;">Not Started</span>
+                    {% elif work.status == 'in progress' %}
+                    <span style="color: orange;">In Progress</span>
+                    {% elif work.status == 'completed' %}
+                    <span style="color: green;">Completed</span>
+                    {% endif %}
+                </td>
+                <td><a href="{% url 'Delete-Todo' work.id %}"><i class="ri-delete-bin-6-line Delete"></i></a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3 class="work-text">🎉 Congratulations! You've completed all your Task. Ready to tackle the next challenge? Create a new task and keep the momentum going!</h3>
+        <div class="home-btn">
+            <button class="btn" onclick="open_pop()">Create</button>
+        </div>
+</div>
+<div class="todo-detailss">
+    <div class="popup-form">
+        <div class="popup-close" onclick="close_pop()">
+            <i class="ri-close-line"></i>
+        </div>
+        <form action="{% url 'Todo' %}" method="post"> {% csrf_token %}
+            <input type="hidden" name="form_type" value="create_homework">
+            <div class="form-row">
+                <div class="form-row1">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-row1">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="not started">Not Started</option>
+                        <option value="in progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-row1"><button class="submit-popup">Submit</button></div>
+            </div>
+            </form>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    const pop = gsap.timeline({
+        paused: true
+    });
+    pop.to(".todo-detailss", {
+        duration: 0.8,
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        ease: "power4.out"
+    });
+
+    pop.from(".popup-top, .form-row1 label, .form-row1 input, .submit-popup , .form-row1 select", {
+        duration: 0.5,
+        opacity: 0,
+        y: 15,
+        stagger: {
+            amount: 0.4
+        }
+    }, "-=0.3");
+
+    function open_pop() {
+        document.querySelector('.todo-detailss').style.display = 'block';
+        pop.play();
+    }
+
+    function close_pop() {
+        // Hide the popup by setting display to none after a short delay for smooth effect
+        document.querySelector('.todo-detailss').style.display = 'none';
+        // Reset the animation so it can be played again later
+        pop.seek(0).pause();
+    }
+</script>
+{% endblock %}

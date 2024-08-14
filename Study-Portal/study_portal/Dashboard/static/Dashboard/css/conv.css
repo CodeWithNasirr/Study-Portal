@@ -1,0 +1,118 @@
+.conversion-main{
+    background-color: whitesmoke;
+    height: 79vh;
+}
+.measurement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px 0;
+    gap: 23px;
+}
+.conversion-main button{
+    padding: 10px 17px;
+    border: 0;
+    border-radius: 40px;
+    background-color: brown;
+    color: white;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.conversion-main #lengthForm{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 89px 0;
+}
+.conversion-length{
+    line-height: 2;
+    padding: 20px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.conversion-length input{
+    width: 75%;
+    height: 30px;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Neutral Face';
+    margin-top: 10px;
+    padding-left: 20px;
+    background: #ffff;
+    box-shadow: 0px 0px 48px 0px rgb(137 124 124);
+    font-size: large;
+}
+.conversion-length .from{
+    padding-right: 144px;
+}
+.conversion-length label{
+    font-size: 18px;
+    font-weight: 700;
+}
+.conversion-length select{
+    height: 30px;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Neutral Face';
+    margin-top: 10px;
+    background: #ffff;
+    box-shadow: 0px 0px 48px 0px rgb(137 124 124);
+    font-size: large;
+}
+
+/* conversion-mass */
+
+.conversion-main #massForm{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 89px 0;
+}
+.conversion-mass{
+    line-height: 2;
+    padding: 20px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.conversion-mass input{
+    width: 75%;
+    height: 30px;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Neutral Face';
+    margin-top: 10px;
+    padding-left: 20px;
+    background: #ffff;
+    box-shadow: 0px 0px 48px 0px rgb(137 124 124);
+    font-size: large;
+}
+.conversion-mass .from{
+    padding-right: 144px;
+}
+.conversion-mass label{
+    font-size: 18px;
+    font-weight: 700;
+}
+.conversion-mass select{
+    height: 30px;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Neutral Face';
+    margin-top: 10px;
+    background: #ffff;
+    box-shadow: 0px 0px 48px 0px rgb(137 124 124);
+    font-size: large;
+}
+.lengthResult{
+    line-height: 5;
+}

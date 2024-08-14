@@ -1,0 +1,76 @@
+{% extends 'Dashboard/base.html' %}
+{% load static %}
+{% block body %}
+<div class="note-main max-width1 m-auto my-2">
+    <div class="slide-container swiper">
+    <div class="swiper-wrapper">
+        {% for note in Notes %}
+        <a href="{% url 'Details-Note' note.id %}">
+        <div class="card swiper-slide">
+            <h2 class="title">{{note.title}}</h2>
+            <hr>
+            <p class="description">{{note.descriptions}}</p>
+            <a href="{% url 'DeleteNote' note.id %}"><i class="ri-delete-bin-6-line Delete"></i></a>
+        </div>
+    </a>
+        {% endfor %}
+        <!-- Add more slides here if needed -->
+        
+    </div>
+        <!-- Add more slides as needed -->
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="note-details">
+        <h1>Create Notes</h1>
+        <form action="notes" method="post">{% csrf_token %}
+            <label for="title">Title </label>
+            <textarea name="title" id="title" rows="2" required></textarea>
+            <!-- <ul class="error">
+                <li> {{ error_title }}</li>
+            </ul> -->
+            <label for="desc">Descriptions </label>
+            <textarea name="Desc" id="desc" rows="5" required></textarea>
+            <!-- <ul class="error">
+                <li> {{ error_desc }}</li>
+            </ul> -->
+            
+            <div class="note-btn">
+                <button class="btn">Submit</button>
+            </div>
+            {% if messages %}
+            <ul class="sucesss">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+    
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+  var swiper = new Swiper(".slide-container", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop:true,
+            centerSlide:'true',
+            fade:'true',
+            grabCursor:'true',
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets:true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+</script>
+{% endblock %}

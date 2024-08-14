@@ -1,0 +1,107 @@
+{% extends 'Dashboard/base.html' %}
+{% block body %}
+
+<div class="conversion-main max-width1 m-auto my-2">
+    <form id="measurementForm" method="POST" action="#">
+        <div class="measurement">
+            <h2>Measurement*</h2>
+            <div class="input">
+                <input type="radio" name="measurement" id="length" value="length" onclick="showForm('lengthForm')">
+                <label for="length">Length</label>
+    
+                <input type="radio" name="measurement" id="mass" value="mass" onclick="showForm('massForm')">
+                <label for="mass">Mass</label>
+            </div>
+        </div>
+    </form>
+    
+    <!-- Length Conversion Form -->
+    <form id="lengthForm" method="POST" action="javascript:void(0);" style="display:none;">
+        {% csrf_token %}
+        <h2>Length Conversion</h2>
+        <input type="hidden" name="form_type" value="length_Form">
+        <div class="conversion-length">
+            <div class="input">
+                <input type="number" name="input" id="lengthInput" placeholder="Enter the Number">
+            </div>
+            <div class="from">
+            <label for="measure1">From:</label>
+            <select name="measure1" id="lengthMeasure1">
+                <option value="yard">Yard</option>
+                <option value="foot">Foot</option>
+            </select>
+            </div>
+            <div class="to">
+            <label for="measure2">To:</label>
+            <select name="measure2" id="lengthMeasure2">
+                <option value="yard">Yard</option>
+                <option value="foot">Foot</option>
+            </select>
+            </div>
+        </div>
+        <div id="lengthResult" class="lengthResult"></div> <!-- Result will be shown here -->
+        <button type="button" id="lengthConvertBtn">Convert</button>
+    </form>
+    
+    <!-- Mass Conversion Form -->
+    <form id="massForm" method="POST" action="javascript:void(0);" style="display:none;">
+        {% csrf_token %}
+        <h2>Mass Conversion</h2>
+        <input type="hidden" name="form_type" value="mass_Form">
+        <div class="conversion-mass">
+            <div class="input">
+                <input type="number" name="input" id="massInput" placeholder="Enter the Number">
+            </div>
+            <div class="from">
+            <label for="measure1">From:</label>
+            <select name="measure1" id="massMeasure1">
+                <option value="pound">Pound</option>
+                <option value="kilogram">Kilogram</option>
+            </select>
+            </div>
+            <div class="to">
+            <label for="measure2">To:</label>
+            <select name="measure2" id="massMeasure2">
+                <option value="pound">Pound</option>
+                <option value="kilogram">Kilogram</option>
+            </select>
+            </div>
+        </div>
+        <div id="massResult" class="lengthResult"></div> <!-- Result will be shown here -->
+        <button type="button" id="massConvertBtn">Convert</button>
+    </form>
+    
+    <script>
+        function showForm(id) {
+            document.getElementById('lengthForm').style.display = 'none';
+            document.getElementById('massForm').style.display = 'none';
+
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        document.getElementById('lengthConvertBtn').onclick = function () {
+            const formData = new FormData(document.getElementById('lengthForm'));
+            ajaxSubmit(formData, 'lengthResult');
+        };
+
+        document.getElementById('massConvertBtn').onclick = function () {
+            const formData = new FormData(document.getElementById('massForm'));
+            ajaxSubmit(formData, 'massResult');
+        };
+
+        function ajaxSubmit(formData, resultId) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '{% url "conversion" %}', true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    document.getElementById(resultId).innerHTML = response.answer;
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</div>
+
+{% endblock %}

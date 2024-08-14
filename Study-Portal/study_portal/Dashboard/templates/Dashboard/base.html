@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Dashboard/css/util.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/note.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/work.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/youtube.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/todo.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/desc.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/conv.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/register.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.9/swiper-bundle.min.css" integrity="sha256-MMXrlNBnzij7CcWxGT9wVEKkTx+8LMBE9gW0LqgnRx0=" crossorigin="anonymous">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>{% block title %} {% endblock %}</title>
+</head> 
+<body>
+ 
+    <div class="main">
+        <div class="navigation max-width1 m-auto">
+            <div class="nav-left">
+                {% if user.is_authenticated %}
+                <span><a href="/">Student Study Portal</a></span>
+                {% else %}
+                <span><a href="">Student Study Portal</a></span>
+                {% endif %}
+            </div>
+            <div class="nav-right">
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="/">Home</a></li>
+                    <!-- <li><a href="Option">Option</a></li> -->
+                    <li><a href="logout">Log Out</a></li>
+                    <!-- <li><a href="Profile">Profile</a></li> -->
+                     {%  else %}
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="max-width1 m-auto">
+            <hr>
+        </div>
+        {% block body %}
+        {% endblock %}
+
+    <footer class="footer max-width1 m-auto">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Notes</a></li>
+                        <li><a href="#">Homework</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">To-Do</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: contact@studyportal.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <p>Address: 123 Study Portal Lane, Knowledge City</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><img src="{% static 'Dashboard/images/facebook-icon.png' %}" alt="Facebook"></a>
+                        <a href="#"><img src="{% static 'Dashboard/images/twitter-icon.png' %}" alt="Twitter"></a>
+                        <a href="#"><img src="{% static 'Dashboard/images/instagram-icon.png' %}" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Student Study Portal. All rights reserved.</p>
+        </div>
+    </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.9/swiper-bundle.min.js" integrity="sha256-5zigKaoOwsOnRsnlyB0bo9zGym+XkoLO/atGJURu+Tc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    {% block js %}{% endblock %}
+</body>
+</html>

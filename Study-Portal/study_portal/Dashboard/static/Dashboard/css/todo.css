@@ -1,0 +1,11 @@
+.todo-detailss{
+    background-color: #978e8e;
+    height: 95vh;
+    position: fixed;
+    transform: translateY(-105%);
+    top: 0;
+    opacity: 0;
+    width: 90vw;
+    border-radius: 50px;
+    margin: 2vw 5vw;
+}

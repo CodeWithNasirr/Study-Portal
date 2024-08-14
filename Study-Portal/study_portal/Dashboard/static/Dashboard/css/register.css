@@ -1,0 +1,94 @@
+/* Logout */
+.logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.l-btn {
+    margin-left: 13px;
+    padding: 10px 17px;
+    border: 0;
+    border-radius: 40px;
+    background-color: #ff1c1c;
+    color: white;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.r-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: lightskyblue; */
+    width: 28%;
+    height: 58%;
+    padding: 113px 0;
+}
+
+.r-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.r-container form label {
+    font-weight: 700;
+}
+
+.r-container form input {
+    width: 65%;
+    height: 31px;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Neutral Face';
+    margin-top: 10px;
+    padding-left: 20px;
+    background: #ffff;
+    margin-left: 8px;
+    box-shadow: 0px 0px 48px 0px rgb(137 124 124);
+    font-size: large;
+
+}
+
+.r-container form button {
+    margin-left: 13px;
+    padding: 10px 17px;
+    border: 0;
+    border-radius: 40px;
+    background-color: #ff1c1c;
+    color: white;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.r-container .l-error{
+    padding: 10px;
+    text-align: center;
+    color: red;
+}
+
+.messages .alert-error {
+    padding: 18px 103px;
+    color: red;
+    text-align: center;
+}
+.messages .alert-success {
+    padding: 18px 103px;
+    color: rgb(75, 236, 0);
+    text-align: center;
+}

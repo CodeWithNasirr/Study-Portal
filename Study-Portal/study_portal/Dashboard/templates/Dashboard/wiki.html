@@ -1,0 +1,32 @@
+<!-- pip install wikipedia -->
+{% extends 'Dashboard/base.html' %}
+{% block body %}
+<div class="y-main max-width1 m-auto my-2">
+    <div class="search">
+        <form action="" method="post"> 
+            {% csrf_token %}
+            <h2>Search Article in Wikipedia</h2>
+            <p>just enter the search query to obtain the results </p>
+            <div class="search-text">
+                <input type="text" class="search" name="text" id="text" value="{{ text }}">
+                <button class="y-btn" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    
+    {% if has_results %}
+    <div class="wiki-results">
+        <div class="title">
+            <h1>{{ title }}</h1>
+            <p><a href="{{ link }}" target="_blank">Link to Wikipedia</a></p>
+        </div>
+        <div class="details">
+            {{ details }}
+        </div>
+    </div>
+{% else %}
+    <p>{{details}}</p>
+{% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'Dashboard/base.html' %}
+{% load static %}  <!-- Load the static template tag -->
+
+{% block body %}
+
+<div class="details-container max-width1 my-2 m-auto">
+    <h2 class="title">{{ note.title }}</h2>
+    <hr>
+    <p class="description">{{ note.descriptions }}</p>
+</div>
+{% endblock %}

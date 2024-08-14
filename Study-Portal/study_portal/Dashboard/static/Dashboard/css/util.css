@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap");
+:root { 
+  --main-bg-color: #bd6418;
+  --font1: "Baloo Bhaina 2", cursive;
+  --font2: "Roboto", sans-serif;
+}
+
+
+.font1 {
+    font-family: var(--font1);
+  }
+.font2 {
+    font-family: var(--font2);
+  } 
+
+
+.max-width1 {
+    max-width: 80vw;
+}
+
+.m-auto{
+    margin: auto;
+}
+.my-2{
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.btn{
+  width: 88px;
+  height: 41px;
+  background-color: pink;
+  border-radius: 27px;
+  border: 1px solid black;
+  font-size: 15px;
+  font-weight: bold;
+}
+/* Footer Css */
+.footer {
+  display: none;
+  /* background-color: #797474ec; */
+  padding: 20px 0;
+  color: #333;
+  width: 100%;
+
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px 20px;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+}
+
+.footer-column p, .footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #007bff;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #e7e7e7;
+  padding-top: 10px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}

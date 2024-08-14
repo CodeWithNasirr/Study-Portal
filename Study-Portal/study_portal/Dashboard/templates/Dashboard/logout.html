@@ -1,0 +1,10 @@
+{% extends 'Dashboard/base.html' %}
+{% load static %}
+{% block body %}
+<div class="logout">
+    <h1>You are Logged Out</h1>
+    <a href="{% url 'login' %}"><button class="l-btn">Log in Again</button></a>
+</div>
+
+
+{% endblock %}

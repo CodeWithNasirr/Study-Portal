@@ -1,0 +1,71 @@
+{% extends 'Dashboard/base.html' %}
+{% load static %}
+{% block body %}
+        <div class="dashboard max-width1 m-auto my-2">
+            <span><h1>Welcome</h1></span>
+            <div class="cards-container">
+                <div class="card1">
+                    <a href="notes" class="clickable-div">
+                        <div class="notes">
+                            <img src="{% static 'Dashboard/images/notes.jpg' %}" alt="notes">
+                            <h3>Notes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                        </div>
+                    </a>
+                    <a href="home_work" class="clickable-div">
+                    <div class="homework">
+                        <img src="{% static 'Dashboard/images/homework.jpg' %}" alt="homework">
+                        <h3>HomeWork</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                    </div>
+                </a>
+                <a href="Youtube" class="clickable-div">
+                    <div class="Youtube">
+                        <img src="{% static 'Dashboard/images/youtube.jpg' %}" alt="Youtube">
+                        <h3>Youtube</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                    </div>
+                </a>
+                <a href="todo" class="clickable-div">
+                    <div class="Todo">
+                    <img src="{% static 'Dashboard/images/todo.jpg' %}" alt="Todo">
+                        <h3>Todo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                </div>
+            </a>
+                </div>
+                <div class="card2">
+                    <a href="book" class="clickable-div">
+                    <div class="Books">
+                        <img src="{% static 'Dashboard/images/books.jpg' %}" alt="Books">
+                        <h3>Books</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                    </div>
+                    </a>
+                    <a href="conversion" class="clickable-div">
+                    <div class="Conversion">
+                        <img src="{% static 'Dashboard/images/conversion.jpg' %}" alt="Conversion">
+                        <h3>Conversion</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                    </div>
+                </a>
+                    <a href="dictionary" class="clickable-div">
+                    <div class="Dictionory">
+                        <img src="{% static 'Dashboard/images/dictionary.jpg' %}" alt="Dictionory">
+                        <h3>Dictionory</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                    </div>
+                </a>
+                <a href="wiki" class="clickable-div">
+                    <div class="Wiki">
+                    <img src="{% static 'Dashboard/images/wiki.jpg' %}" alt="Wiki">
+                        <h3>Wiki</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore!</p>
+                </div>
+            </a>
+
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'Dashboard/base.html' %}
+
+{% block body %}
+<div class="y-main max-width1 m-auto my-2">
+    <div class="search">
+        <form action="" method="post"> 
+            {% csrf_token %}
+            <h2>Student Dictionary</h2>
+            <p>Enter any word to get the phonetics, definition, and example for the word</p>
+            <div class="search-text">
+                <input type="text" class="search" name="text" id="text" value="{{ input }}">
+                <button class="y-btn" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    
+    {% if has_results %}
+        <div class="dic-results">
+            <div class="input">
+                <h2>{{input}}</h2>
+            </div>
+            <div class="phonetics">
+                <h3>Phonetics: {{ phonetics }}</h3>
+            </div>
+            <audio id="player" src="{{audio}}"></audio>
+            <div>
+                <a onclick="document.getElementById('player').play()"><i class="ri-volume-up-line"></i></a>
+            </div>
+            <hr>
+            <div class="definition">
+                <h4>Definition: {{ definition }}</h4>
+            </div>
+            <div class="example">
+                <p><strong>Example:</strong> {{ example }}</p>
+            </div>
+            <div class="synonyms">
+                <p><strong>Synonyms:</strong> {{ synonyms|join:", " }}</p>
+            </div>
+        </div>
+    {% else %}
+    <p>No results found for your search query.</p>
+    {% endif %}
+</div>
+{% endblock %}
